@@ -1,0 +1,30 @@
+const Card = () => {
+  return (
+    <section className="flex flex-col default-border h-min pl-8 py-4 max-w-[46rem]">
+      <div className="flex gap-4">
+        <div className="flex flex-col gap-2">
+          <p className="opacity-50 text-xs">Platform</p>
+          <p className="py-2 px-4 bg-violet-300/60 rounded-full font-roboto-slab-500">
+            LinkedIn
+          </p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="opacity-50 text-xs">Writing Style</p>
+          <p className="py-2 px-4 bg-green-300/60 rounded-full font-roboto-slab-500">
+            Professional
+          </p>
+        </div>
+      </div>
+      <div className="mt-4">
+        <span className="font-roboto-slab-500">Topic:</span> Course Completion
+      </div>
+      <div className="my-2">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad
+        debitis, earum eius in itaque iure, laudantium maiores necessitatibus
+        nemo quam qui tempora velit. Atque dolores esse illum quos voluptatem.
+      </div>
+    </section>
+  );
+};
+
+export default Card;

@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap"); /* ROBOTO SLAB */
+@import "tailwindcss";
+
+body {
+  @apply flex items-center justify-center min-h-screen bg-blue-300 font-roboto-slab-400;
+}
+
+/* GREEN TINT */
+@theme {
+  --color-green-50: #eefcf3;
+  --color-green-100: #d8f8e4;
+  --color-green-200: #acf1c5;
+  --color-green-300: #7ce9a4;
+  --color-green-400: #33dc71;
+  --color-green-500: #22c55e;
+  --color-green-600: #1fb255;
+  --color-green-700: #1b9d4b;
+  --color-green-800: #167e3c;
+  --color-green-900: #105b2b;
+  --color-green-950: #0b411f;
+}
+
+/* LIGHT BLUE TINT */
+@theme {
+  --color-blue-50: #f7fbfd;
+  --color-blue-100: #eff8fa;
+  --color-blue-200: #e0f0f5;
+  --color-blue-300: #cce7f0;
+  --color-blue-400: #bddfeb;
+  --color-blue-500: #add8e6;
+  --color-blue-600: #6ebad3;
+  --color-blue-700: #3898b8;
+  --color-blue-800: #26677d;
+  --color-blue-900: #13343f;
+  --color-blue-950: #0a1a1f;
+}
+
+/* FONTS */
+/* ROBOTO SLAB */
+@font-face {
+  font-family: "Roboto Slab", "sans-serif";
+  font-style: normal;
+  font-display: swap;
+}
+@utility font-roboto-slab-100 {
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 100;
+  font-style: normal;
+}
+@utility font-roboto-slab-200 {
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 200;
+  font-style: normal;
+}
+@utility font-roboto-slab-300 {
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 300;
+  font-style: normal;
+}
+@utility font-roboto-slab-400 {
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 400;
+  font-style: normal;
+}
+@utility font-roboto-slab-500 {
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 500;
+  font-style: normal;
+}
+@utility font-roboto-slab-600 {
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 600;
+  font-style: normal;
+}
+@utility font-roboto-slab-700 {
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 700;
+  font-style: normal;
+}
+@utility font-roboto-slab-800 {
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 800;
+  font-style: normal;
+}
+@utility font-roboto-slab-900 {
+  font-family: "Roboto Slab", "sans-serif";
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* BORDER */
+@utility default-border {
+  @apply border-2 border-gray-400 rounded-xl;
+}
+
+/* FORM */
+.form-inputs {
+  @apply outline-none default-border p-4 placeholder-black;
+}
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url('/down-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+.form-fields {
+  @apply flex flex-col gap-2;
+}
+
