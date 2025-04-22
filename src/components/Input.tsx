@@ -103,13 +103,15 @@ const Input = () => {
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="bg-violet-800 hover:bg-violet-600 active:bg-violet-700 hover:rounded-tl-lg hover:rounded-br-lg p-4 rounded-3xl mt-12 text-white flex items-center justify-center cursor-pointer gap-3  transition-all duration-200"
-        disabled={loading}
-      >
-        <RxMagicWand className="size-6" />
-        Inspire Me
+      <button type="submit" className="button" disabled={loading}>
+        {loading ? (
+          <img src="/loading.svg" alt="loading..." className="size-6" />
+        ) : (
+          <div className="flex gap-3 text-white">
+            <RxMagicWand className="size-6" />
+            Inspire Me
+          </div>
+        )}
       </button>
     </form>
   );
