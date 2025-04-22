@@ -1,9 +1,9 @@
 import { toTitleCase } from "../utils/format-text.ts";
 
 interface Props {
-  platform: "";
-  topic: "";
-  style: "";
+  platform: string;
+  topic: string;
+  style: string;
 }
 
 const Card = (props: Props) => {
