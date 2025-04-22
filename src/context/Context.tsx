@@ -6,34 +6,36 @@ import {
   useContext,
   useState,
 } from "react";
-import { FormInputType } from "../../types";
+import { CardType } from "../../types";
 
-interface FormContextType {
-  formData: FormInputType[] | undefined;
-  setFormData: Dispatch<SetStateAction<FormInputType[] | undefined>>;
+interface CardContext {
+  cardData: CardType[] | undefined;
+  setCardData: Dispatch<SetStateAction<CardType[] | undefined>>;
 }
 
-// Only the FormContextType and its implementation in FormContext is generated using GitHub Copilot, the rest is self-made.
+// The interface CardContext and its implementation in CardContext is generated using GitHub Copilot, the rest is self-made.
 
-const FormContext = createContext<FormContextType>({
-  formData: undefined,
-  setFormData: () => undefined,
+const CardContext = createContext<CardContext>({
+  cardData: undefined,
+  setCardData: () => undefined,
 });
 
-export const FormProvider = ({ children }: { children: ReactNode }) => {
-  const [formData, setFormData] = useState<FormInputType[]>();
+export const CardProvider = ({ children }: { children: ReactNode }) => {
+  const [cardData, setCardData] = useState<CardType[]>();
 
   return (
-    <FormContext.Provider value={{ formData, setFormData }}>
+    <CardContext.Provider
+      value={{ cardData: cardData, setCardData: setCardData }}
+    >
       {children}
-    </FormContext.Provider>
+    </CardContext.Provider>
   );
 };
 
-export const useFormContext = () => {
-  const context = useContext(FormContext);
+export const useCardContext = () => {
+  const context = useContext(CardContext);
   if (!context) {
-    throw new Error("useFormContext must be used within FormProvider");
+    throw new Error("useCardContext must be used within CardProvider");
   }
   return context;
 };
