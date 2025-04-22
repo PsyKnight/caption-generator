@@ -1,16 +1,20 @@
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { RxMagicWand } from "react-icons/rx";
+import { useFormContext } from "../context/Context.tsx";
 
 interface Props {}
 
 const Input = (props: Props) => {
   const {} = props;
+  const { setFormData } = useFormContext();
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const [platform, setPlatform] = useState<string>("");
+  const [topic, setTopic] = useState<string>("");
+  const [style, setStyle] = useState<string>("");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const platform = form.get("platform");
-    console.log(platform);
+    setFormData({ platform, topic, style });
   };
 
   return (
@@ -24,13 +28,19 @@ const Input = (props: Props) => {
       <div className="flex flex-col text-lg min-w-[20rem] gap-6">
         <div className="form-fields">
           <label htmlFor="platform">Select a Platform</label>
-          <select name="platform" className="form-inputs">
+          <select
+            name="platform"
+            className="form-inputs"
+            onChange={(e) => setPlatform(e.target.value)}
+            value={platform}
+            required
+          >
             <option value="">Select</option>
-            <option value="instagran">Instagram</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="instagram">Instagram</option>
             <option value="x">X</option>
             <option value="facebook">Facebook</option>
             <option value="youtube">Youtube</option>
-            <option value="linkedin">LinkedIn</option>
             <option value="reddit">Reddit</option>
             <option value="github">Github</option>
             <option value="email">Email</option>
@@ -41,14 +51,25 @@ const Input = (props: Props) => {
           <input
             name="topic"
             className="form-inputs"
+            onChange={(e) => setTopic(e.target.value)}
+            value={topic}
             placeholder="Course completion..."
+            required
           />
         </div>
         <div className="form-fields">
           <label htmlFor="style">Writing Style</label>
-          <select name="style" className="form-inputs">
+          <select
+            name="style"
+            className="form-inputs"
+            onChange={(e) => setStyle(e.target.value)}
+            value={style}
+            required
+          >
+            <option value="">Select</option>
             <option value="professional">Professional</option>
             <option value="casual">Casual</option>
+            <option value="creative">Creative</option>
           </select>
         </div>
       </div>

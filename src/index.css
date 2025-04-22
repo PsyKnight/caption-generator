@@ -95,7 +95,7 @@ body {
 
 /* FORM */
 .form-inputs {
-  @apply outline-none default-border p-4 placeholder-black;
+  @apply outline-none default-border p-4;
 }
 select {
   -moz-appearance: none;
