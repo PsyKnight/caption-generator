@@ -91,7 +91,7 @@ const Input = () => {
 
       <button
         type="submit"
-        className="bg-violet-800 p-4 rounded-lg mt-12 text-white flex items-center justify-center cursor-pointer gap-3"
+        className="bg-violet-800 hover:bg-violet-600 active:bg-violet-700 hover:rounded-tl-lg hover:rounded-br-lg p-4 rounded-3xl mt-12 text-white flex items-center justify-center cursor-pointer gap-3  transition-all duration-200"
       >
         <RxMagicWand className="size-6" />
         Inspire Me
