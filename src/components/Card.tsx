@@ -1,10 +1,31 @@
 import { toTitleCase } from "../utils/format-text.ts";
 import { CardType } from "../../types";
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import { useCardContext } from "../context/Context.tsx";
 
 const Card = (props: CardType) => {
+  const { setCardData } = useCardContext();
   const { platform, topic, style, caption } = props;
+
+  const handleDelete = () => {
+    setCardData((prevState) =>
+      prevState?.filter(
+        (card) =>
+          !(
+            card.platform === platform &&
+            card.topic === topic &&
+            card.style === style &&
+            card.caption === caption
+          ),
+      ),
+    );
+  };
+
   return (
-    <section className="flex flex-col default-border h-min pl-8 py-4 max-w-[calc(48rem-24px)]">
+    <section className="flex flex-col default-border h-min pl-8 pr-6 py-4 max-w-[calc(48rem-24px)] relative">
+      <button className="cursor-pointer" onClick={() => handleDelete()}>
+        <IoMdCloseCircleOutline className="top-4 right-4 absolute size-6" />
+      </button>
       <div className="flex gap-4">
         <div className="flex flex-col gap-2">
           <p className="opacity-50 text-xs">Platform</p>
