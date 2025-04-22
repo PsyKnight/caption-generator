@@ -1,10 +1,13 @@
 import { FormEvent, useState } from "react";
 import { RxMagicWand } from "react-icons/rx";
 import { FormInputType } from "../../types";
-import { useFormContext } from "../context/Context.tsx";
+import getCaption from "../utils/gemini.ts";
+import { useCardContext } from "../context/Context.tsx";
 
 const Input = () => {
-  const { formData, setFormData } = useFormContext();
+  const { setCardData } = useCardContext();
+
+  const [loading, setLoading] = useState<boolean>(false);
   const [formInput, setFormInput] = useState<FormInputType>({
     platform: "",
     topic: "",
@@ -13,10 +16,20 @@ const Input = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setFormData((prevState) =>
-      prevState ? [...prevState, formInput] : [formInput],
-    );
-    console.log(formData);
+    try {
+      setLoading(true);
+
+      const caption = await getCaption({ ...formInput });
+
+      setCardData((prevState) => [
+        ...(prevState || []),
+        { ...formInput, caption },
+      ]);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -50,6 +63,7 @@ const Input = () => {
             <option value="reddit">Reddit</option>
             <option value="github">Github</option>
             <option value="email">Email</option>
+            <option value="other">Other</option>
           </select>
         </div>
         <div className="form-fields">
@@ -92,6 +106,7 @@ const Input = () => {
       <button
         type="submit"
         className="bg-violet-800 hover:bg-violet-600 active:bg-violet-700 hover:rounded-tl-lg hover:rounded-br-lg p-4 rounded-3xl mt-12 text-white flex items-center justify-center cursor-pointer gap-3  transition-all duration-200"
+        disabled={loading}
       >
         <RxMagicWand className="size-6" />
         Inspire Me

@@ -1,13 +1,8 @@
 import { toTitleCase } from "../utils/format-text.ts";
+import { CardType } from "../../types";
 
-interface Props {
-  platform: string;
-  topic: string;
-  style: string;
-}
-
-const Card = (props: Props) => {
-  const { platform, topic, style } = props;
+const Card = (props: CardType) => {
+  const { platform, topic, style, caption } = props;
   return (
     <section className="flex flex-col default-border h-min pl-8 py-4 max-w-[calc(48rem-24px)]">
       <div className="flex gap-4">
@@ -27,11 +22,7 @@ const Card = (props: Props) => {
       <div className="mt-4">
         <span className="font-roboto-slab-500">Topic:</span> {topic}
       </div>
-      <div className="my-2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad
-        debitis, earum eius in itaque iure, laudantium maiores necessitatibus
-        nemo quam qui tempora velit. Atque dolores esse illum quos voluptatem.
-      </div>
+      <div className="my-2">{caption}</div>
     </section>
   );
 };
