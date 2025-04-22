@@ -1,26 +1,27 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
+import { FormInputType } from "../../types";
 
 interface FormContextType {
-  formData: {
-    platform: string;
-    topic: string;
-    style: string;
-  };
-  setFormData: (data: {
-    platform: string;
-    topic: string;
-    style: string;
-  }) => void;
+  formData: FormInputType[] | undefined;
+  setFormData: Dispatch<SetStateAction<FormInputType[] | undefined>>;
 }
 
-const FormContext = createContext<FormContextType | undefined>(undefined);
+// Only the FormContextType and its implementation in FormContext is generated using GitHub Copilot, the rest is self-made.
+
+const FormContext = createContext<FormContextType>({
+  formData: undefined,
+  setFormData: () => undefined,
+});
 
 export const FormProvider = ({ children }: { children: ReactNode }) => {
-  const [formData, setFormData] = useState({
-    platform: "",
-    topic: "",
-    style: "",
-  });
+  const [formData, setFormData] = useState<FormInputType[]>();
 
   return (
     <FormContext.Provider value={{ formData, setFormData }}>

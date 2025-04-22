@@ -1,20 +1,22 @@
 import { FormEvent, useState } from "react";
 import { RxMagicWand } from "react-icons/rx";
+import { FormInputType } from "../../types";
 import { useFormContext } from "../context/Context.tsx";
 
-interface Props {}
-
-const Input = (props: Props) => {
-  const {} = props;
-  const { setFormData } = useFormContext();
-
-  const [platform, setPlatform] = useState<string>("");
-  const [topic, setTopic] = useState<string>("");
-  const [style, setStyle] = useState<string>("");
+const Input = () => {
+  const { formData, setFormData } = useFormContext();
+  const [formInput, setFormInput] = useState<FormInputType>({
+    platform: "",
+    topic: "",
+    style: "",
+  });
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setFormData({ platform, topic, style });
+    setFormData((prevState) =>
+      prevState ? [...prevState, formInput] : [formInput],
+    );
+    console.log(formData);
   };
 
   return (
@@ -31,8 +33,12 @@ const Input = (props: Props) => {
           <select
             name="platform"
             className="form-inputs"
-            onChange={(e) => setPlatform(e.target.value)}
-            value={platform}
+            onChange={(e) =>
+              setFormInput((prevState) => ({
+                ...prevState,
+                platform: e.target.value,
+              }))
+            }
             required
           >
             <option value="">Select</option>
@@ -51,8 +57,13 @@ const Input = (props: Props) => {
           <input
             name="topic"
             className="form-inputs"
-            onChange={(e) => setTopic(e.target.value)}
-            value={topic}
+            onChange={(e) =>
+              setFormInput((prevState) => ({
+                ...prevState,
+                topic: e.target.value,
+              }))
+            }
+            value={formInput.topic}
             placeholder="Course completion..."
             required
           />
@@ -62,8 +73,12 @@ const Input = (props: Props) => {
           <select
             name="style"
             className="form-inputs"
-            onChange={(e) => setStyle(e.target.value)}
-            value={style}
+            onChange={(e) =>
+              setFormInput((prevState) => ({
+                ...prevState,
+                style: e.target.value,
+              }))
+            }
             required
           >
             <option value="">Select</option>

@@ -1,3 +1,5 @@
+import { toTitleCase } from "../utils/format-text.ts";
+
 interface Props {
   platform: "";
   topic: "";
@@ -12,13 +14,13 @@ const Card = (props: Props) => {
         <div className="flex flex-col gap-2">
           <p className="opacity-50 text-xs">Platform</p>
           <p className="py-2 px-4 bg-violet-300/60 rounded-full font-roboto-slab-500">
-            {platform}
+            {toTitleCase(platform)}
           </p>
         </div>
         <div className="flex flex-col gap-2">
           <p className="opacity-50 text-xs">Writing Style</p>
           <p className="py-2 px-4 bg-green-300/60 rounded-full font-roboto-slab-500">
-            {style}
+            {toTitleCase(style)}
           </p>
         </div>
       </div>
