@@ -43,7 +43,7 @@ npm install
 
 3. Create a .env file in the root directory and add your AI API credentials:
 ```bash
-VITE_API_KEY=your_api_key_here
+VITE_GEMNINI_API_KEY=your_api_key_here
 ```
 
 4. Start the server
