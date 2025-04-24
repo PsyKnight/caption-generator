@@ -4,7 +4,7 @@ import { FormInputType } from "../../types";
 import getCaption from "../utils/gemini.ts";
 import { useCardContext } from "../context/Context.tsx";
 
-const Input = () => {
+const Form = () => {
   const { setCardData } = useCardContext();
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -33,14 +33,9 @@ const Input = () => {
   };
 
   return (
-    <form
-      className="m-4 default-border shadow-sm flex flex-col min-w-[36rem] px-14 py-16 h-[42rem]"
-      onSubmit={handleSubmit}
-    >
-      <p className="text-4xl font-bold tracking-wide mb-10 flex flex-col items-center justify-center">
-        Caption Generator
-      </p>
-      <div className="flex flex-col text-lg min-w-[20rem] gap-6">
+    <form onSubmit={handleSubmit}>
+      <p>Caption Generator</p>
+      <div className="field-wrap">
         <div className="form-fields">
           <label htmlFor="platform">Select a Platform</label>
           <select
@@ -117,4 +112,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default Form;

@@ -22,7 +22,7 @@ const Card = (props: CardType) => {
   };
 
   return (
-    <section className="flex flex-col default-border h-min pl-8 pr-6 py-4 max-w-[calc(48rem-24px)] relative">
+    <section className="card">
       <button className="cursor-pointer" onClick={() => handleDelete()}>
         <IoMdCloseCircleOutline className="top-4 right-4 absolute size-6" />
       </button>

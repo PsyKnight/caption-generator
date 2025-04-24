@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
-/* ROBOTO SLAB */
 @import "tailwindcss";
 
 body {
@@ -43,7 +42,6 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
 @utility font-roboto-slab-100 {
   font-family: "Roboto Slab", "sans-serif";
   font-weight: 100;
@@ -96,26 +94,65 @@ body {
 }
 
 /* FORM */
-.form-inputs {
-  @apply outline-none default-border p-4;
+/*form {*/
+/*  @apply default-border shadow-sm flex flex-col lg:min-w-[36rem] lg:h-[42rem] lg:px-14 lg:py-16 md:min-w-48;*/
+/*}*/
+
+form {
+  @apply default-border shadow-sm flex flex-col lg:min-w-[36rem] min-w-96 lg:min-h-[40rem] min-h-96 lg:px-14 lg:py-16 py-12 px-10;
 }
 
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  background-image: url("/down-arrow.svg");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1rem;
-  padding-right: 2.5rem;
+/*form p {*/
+/*  @apply text-4xl font-bold tracking-wide mb-10 flex flex-col items-center justify-center;*/
+/*}*/
+
+form p {
+  @apply text-4xl font-bold tracking-wide mb-10 flex lg:items-center lg:justify-center;
+}
+
+/*.field-wrap {*/
+/*  @apply flex flex-col text-lg gap-6 lg:min-w-[20rem] md:min-w-48*/
+/*}*/
+
+.field-wrap {
+  @apply flex flex-col text-lg gap-6;
 }
 
 .form-fields {
   @apply flex flex-col gap-2;
 }
 
+.form-inputs {
+  @apply outline-none default-border p-4;
+}
+
+/*select {*/
+/*  -moz-appearance: none;*/
+/*  -webkit-appearance: none;*/
+/*  appearance: none;*/
+/*  background-image: url("/down-arrow.svg");*/
+/*  background-repeat: no-repeat;*/
+/*  background-position: right 1rem center;*/
+/*  background-size: 1rem;*/
+/*  padding-right: 2.5rem;*/
+/*}*/
+
+
+
 /* BUTTON */
+/*.button {*/
+/*  @apply bg-violet-800 hover:bg-violet-600 active:bg-violet-700 hover:rounded-tl-lg hover:rounded-br-lg p-4 rounded-3xl mt-12 cursor-pointer transition-all duration-200 flex items-center justify-center;*/
+/*}*/
+
 .button {
-  @apply bg-violet-800 hover:bg-violet-600 active:bg-violet-700 hover:rounded-tl-lg hover:rounded-br-lg p-4 rounded-3xl mt-12 cursor-pointer transition-all duration-200 flex items-center justify-center;
+  @apply bg-violet-800 hover:bg-violet-600 active:bg-violet-700 hover:rounded-tl-lg hover:rounded-br-lg p-4 rounded-3xl mt-10 cursor-pointer transition-all duration-200 flex items-center justify-center;
+}
+
+/* CARDS */
+.card-wrap {
+  @apply lg:w-[48rem] lg:h-[40rem] flex flex-col gap-4 overflow-y-auto;
+}
+
+.card {
+  @apply flex flex-col default-border h-min pl-8 pr-6 py-4 max-w-[calc(48rem-24px)] relative;
 }

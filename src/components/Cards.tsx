@@ -4,7 +4,7 @@ import Card from "./Card.tsx";
 const Cards = () => {
   const { cardData } = useCardContext();
   return (
-    <section className="w-[48rem] h-[42rem] flex flex-col gap-4 my-4 py-2 overflow-y-auto">
+    <section className="card-wrap">
       {cardData?.map((card, index) => (
         <Card key={`${card.topic}-${index}`} {...card} />
       ))}
