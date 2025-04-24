@@ -126,16 +126,16 @@ form p {
   @apply outline-none default-border p-4;
 }
 
-/*select {*/
-/*  -moz-appearance: none;*/
-/*  -webkit-appearance: none;*/
-/*  appearance: none;*/
-/*  background-image: url("/down-arrow.svg");*/
-/*  background-repeat: no-repeat;*/
-/*  background-position: right 1rem center;*/
-/*  background-size: 1rem;*/
-/*  padding-right: 2.5rem;*/
-/*}*/
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("/down-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
 
 
 
